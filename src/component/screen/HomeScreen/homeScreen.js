@@ -1,10 +1,13 @@
 import React from "react";
 import { getNurseSchedule } from "../../../utils/login";
+import {notificationSubscribe, requestNotificationPermission} from "../../../notificationManger";
 
 const HomeScreen = function () {
   const [schedule, setSchedule] = React.useState(null);
   React.useEffect(() => {
-    getNurseSchedule()
+      requestNotificationPermission().then(notificationSubscribe).catch(console.error)
+
+      getNurseSchedule()
       .then((data) => {
         console.log(data);
         setSchedule(data);
