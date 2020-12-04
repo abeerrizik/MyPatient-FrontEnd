@@ -12,3 +12,8 @@ export const getNurseSchedule = async () => {
   const response = await Axios.get(getUrl(`/nurse/schedule`));
   return response.data;
 };
+export const getNurseData = async () => {
+  const response = await Axios.get(getUrl(`/nurse`));
+
+  return response.data;
+};
