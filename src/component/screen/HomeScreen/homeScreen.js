@@ -1,11 +1,18 @@
 import React from "react";
+<<<<<<< HEAD
 import "./homeScreen.css";
 import { getNurseSchedule, updatStatus } from "../../../utils/login";
+=======
+import { getNurseSchedule } from "../../../utils/login";
+import {notificationSubscribe, requestNotificationPermission} from "../../../notificationManger";
+>>>>>>> 2d57eaa4c4ae5bf12d9d8cc77c4ee8d2efb4ac2e
 
 const HomeScreen = function () {
   const [schedule, setSchedule] = React.useState([]);
   React.useEffect(() => {
-    getNurseSchedule()
+      requestNotificationPermission().then(notificationSubscribe).catch(console.error)
+
+      getNurseSchedule()
       .then((data) => {
         setSchedule(data);
       })
