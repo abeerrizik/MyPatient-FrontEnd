@@ -6,8 +6,6 @@ export const login = async (id, password) => {
       id,
       password,
     });
-    if (response.code === 200) return response.message;
-    throw new Error(response.message);
   } catch (e) {
     throw new Error(e.message);
   }

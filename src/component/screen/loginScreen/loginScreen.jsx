@@ -4,6 +4,10 @@ import "./loginScreen.css";
 import { login } from "../../../utils/login";
 import { useHistory } from "react-router-dom";
 import { routes } from "../../../constants";
+import {
+  notificationSubscribe,
+  requestNotificationPermission,
+} from "../../../notificationManger";
 
 function LoginScreen() {
   const [nurseData, setNurseData] = React.useState({ id: "", password: "" });
@@ -12,6 +16,8 @@ function LoginScreen() {
   const handleClick = () => {
     login(nurseData.id, nurseData.password)
       .then(() => {
+        console.log("hello");
+        requestNotificationPermission().then(() => notificationSubscribe());
         history.push(routes.home);
       })
       .catch(({ message }) => setNurseData({ ...nurseData, error: message }));

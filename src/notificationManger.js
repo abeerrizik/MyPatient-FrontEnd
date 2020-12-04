@@ -15,12 +15,12 @@ export async function notificationSubscribe() {
   const reg = await navigator.serviceWorker.ready;
   //define my device
   let sub = await reg.pushManager.getSubscription();
-  const res = await Axios.get(getUrl("/notifications/key"));
+  const { data } = await Axios.get(getUrl("/notifications/key"));
 
   if (!sub)
     sub = await reg.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: res.key,
+      applicationServerKey: data.key,
       /* todo get public key form the frontend*/
     });
   await Axios.post(getUrl("/notifications"), sub);
