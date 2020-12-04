@@ -1,7 +1,7 @@
 import React from "react";
 import "./homeScreen.css";
 import { getNurseSchedule, updatStatus } from "../../../utils/login";
-import { getNurseSchedule } from "../../../utils/login";
+
 import {
   notificationSubscribe,
   requestNotificationPermission,
