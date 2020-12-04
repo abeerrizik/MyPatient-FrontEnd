@@ -1,53 +1,38 @@
 import React from "react";
 import Login from "../../general/login";
 import "./loginScreen.css";
-import { login } from "../../../utils/login";
-import { useHistory } from "react-router-dom";
-import { routes } from "../../../constants";
-import {
-  notificationSubscribe,
-  requestNotificationPermission,
-} from "../../../notificationManger";
+import {login} from "../../../utils/login";
+import {useHistory} from "react-router-dom";
+import {routes} from "../../../constants";
 
-function LoginScreen() {
-  const [nurseData, setNurseData] = React.useState({ id: "", password: "" });
-  const history = useHistory();
+function LoginScreen({onLogin}) {
+    const [nurseData, setNurseData] = React.useState({id: "", password: ""});
+    const history = useHistory();
 
-  const handleClick = () => {
-    history.push(routes.home);
-    // (async ()=>{
-    //     try {
-    //        await login(nurseData.id, nurseData.password)
-    //         history.push(routes.homeScreen);
-    //     } catch (e) {
-    //         console.log(e)
-    //         setNurseData({...nurseData,error:e.message})
-    //         return;
-    //     }
-    //     try {
-    //         await requestNotificationPermission()
-    //         await notificationSubscribe()
-    //     }
-    //     catch (e){
-    //         console.error(e)
-    //     }
+    const handleClick = () => {
 
-    // })()
-  };
-  return (
-    <div className="loginPage">
-      <Login
-        id={nurseData.id}
-        password={nurseData.password}
-        handleClick={handleClick}
-        onIdChange={(value) => setNurseData({ ...nurseData, id: value })}
-        onPasswordChange={(value) =>
-          setNurseData({ ...nurseData, password: value })
-        }
-        error={nurseData.error}
-      />
-    </div>
-  );
+        login(nurseData.id, nurseData.password)
+            .then(() => {
+                history.push(routes.home)
+                if (onLogin) onLogin()
+            })
+            .catch((e) => setNurseData({...nurseData, error: e.message}))
+
+    };
+    return (
+        <div className="loginPage">
+            <Login
+                id={nurseData.id}
+                password={nurseData.password}
+                handleClick={handleClick}
+                onIdChange={(value) => setNurseData({...nurseData, id: value})}
+                onPasswordChange={(value) =>
+                    setNurseData({...nurseData, password: value})
+                }
+                error={nurseData.error}
+            />
+        </div>
+    );
 }
 
 export default LoginScreen;
