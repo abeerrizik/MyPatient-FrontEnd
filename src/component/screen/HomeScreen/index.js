@@ -1,2 +1,3 @@
-import HomeScreen from "./homeScreen.js";
-export default HomeScreen;
+import HomeScreen from "./homeScreen";
+
+export default HomeScreen
