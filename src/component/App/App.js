@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route,useHistory} from "react-router-dom";
 import "./App.css";
 import HomeScreen from "../screen/HomeScreen/homeScreen";
 import LoginScreen from "../screen/loginScreen/loginScreen";
@@ -8,8 +8,13 @@ import {getNurseData} from "../../utils/login";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const history = useHistory()
     useEffect(()=>{
-        getNurseData().then((data)=>setIsLoggedIn(Boolean(data)))
+        getNurseData().then((data)=>{
+            setIsLoggedIn(Boolean(data))
+            history.push(routes.home)
+        })
+
     },[])
     if (!isLoggedIn)
         return <div className="App">
