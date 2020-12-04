@@ -1,7 +1,4 @@
 import React from "react";
-import Logo from "../component/logo";
-import "./PatientMedications.css";
-import { useHistory } from "react-router-dom";
 import { login } from "../../../utils/login";
 
 const HomeScreen = function () {
@@ -9,17 +6,14 @@ const HomeScreen = function () {
   React.useEffect(() => {
     login()
       .then((data) => {
+        console.log(data);
         setSchedule(data);
       })
       .catch(() => {});
   }, []);
-  if (!schedule) {
-    return <h3>...Loading</h3>;
-  }
 
   return (
     <div className="main-card">
-      <Logo />
       <div className="title">
         <p>My Schedule</p>
       </div>
@@ -50,4 +44,4 @@ const HomeScreen = function () {
   );
 };
 
-export default PatientMedication;
+export default HomeScreen;

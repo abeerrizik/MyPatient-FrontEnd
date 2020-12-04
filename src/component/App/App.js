@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import LoginScreen from "../screen/loginScreen";
+import HomeScreen from "../screen/HomeScreen/homeScreen";
 import { routes } from "../../constants";
+import LoginScreen from "../screen/loginScreen/loginScreen";
 
 function App() {
+  // const [IsLogin, setIsLogin] = React.useState(false);
   return (
     <div className="App">
       <Switch>
-        <Route path={routes.home}>
+        <Route exact path={routes.login}>
           <LoginScreen />
+        </Route>
+        <Route exact path={routes.home}>
+          <HomeScreen />
         </Route>
       </Switch>
     </div>

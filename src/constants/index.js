@@ -1,4 +1,4 @@
 export const routes = {
-  loginScreen: "/",
-  homeScreen: "/home",
+  login: "/",
+  home: "/home",
 };
