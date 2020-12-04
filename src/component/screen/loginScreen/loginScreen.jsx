@@ -14,13 +14,25 @@ function LoginScreen() {
   const history = useHistory();
 
   const handleClick = () => {
-    login(nurseData.id, nurseData.password)
-      .then(() => {
-        console.log("hello");
-        requestNotificationPermission().then(() => notificationSubscribe());
-        history.push(routes.home);
-      })
-      .catch(({ message }) => setNurseData({ ...nurseData, error: message }));
+      (async ()=>{
+          try {
+             await login(nurseData.id, nurseData.password)
+              history.push(routes.homeScreen);
+          } catch (e) {
+              console.log(e)
+              setNurseData({...nurseData,error:e.message})
+              return;
+          }
+          try {
+              await requestNotificationPermission()
+              await notificationSubscribe()
+          }
+          catch (e){
+              console.error(e)
+          }
+
+      })()
+
   };
   return (
     <div className="loginPage">
