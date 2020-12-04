@@ -12,3 +12,10 @@ export const getNurseSchedule = async () => {
   const response = await Axios.get(getUrl(`/nurse/schedule`));
   return response.data;
 };
+
+export const updatStatus = async (treatmentId, status) => {
+  const response = await Axios.post(getUrl(`/treatment`), {
+    treatmentId,
+    status,
+  });
+};

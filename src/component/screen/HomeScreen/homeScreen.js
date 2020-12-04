@@ -1,17 +1,26 @@
 import React from "react";
-import { getNurseSchedule } from "../../../utils/login";
+import "./homeScreen.css";
+import { getNurseSchedule, updatStatus } from "../../../utils/login";
 
 const HomeScreen = function () {
-  const [schedule, setSchedule] = React.useState(null);
+  const [schedule, setSchedule] = React.useState([]);
   React.useEffect(() => {
     getNurseSchedule()
       .then((data) => {
-        console.log(data);
         setSchedule(data);
       })
       .catch(() => {});
   }, []);
-  console.log(schedule);
+
+  const handlClick = (treatment_id, status) => {
+    updatStatus(treatment_id, status).then(() => {
+      schedule[
+        schedule.findIndex((x) => x.id === treatment_id)
+      ].status = status;
+      setSchedule([...schedule]);
+    });
+  };
+
   return (
     <div className="main-card">
       <div className="title">
@@ -38,7 +47,12 @@ const HomeScreen = function () {
               <td>{data.Description}</td>
               <td>
                 {" "}
-                <input type="checkbox" className="status" value="true" />{" "}
+                <input
+                  type="checkbox"
+                  className="status"
+                  checked={data.status}
+                  onChange={() => handlClick(data.id, !data.status)}
+                />{" "}
               </td>
             </tr>
           ))}
