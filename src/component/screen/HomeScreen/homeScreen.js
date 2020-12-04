@@ -28,17 +28,6 @@ const HomeScreen = function () {
             <th>Status</th>
           </tr>
         </thead>
-        {/* <tbody>
-          {schedule.data.map(
-            ({ }) => (
-              <tr>
-                <td>{}</td>
-                <td>{}</td>
-                <td> {} </td>
-              </tr>
-            )
-          )}
-        </tbody> */}
       </table>
     </div>
   );
