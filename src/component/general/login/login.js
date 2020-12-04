@@ -1,6 +1,6 @@
 import React from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+
 import { routes } from "../../../constants";
 
 const Login = function ({
@@ -12,9 +12,12 @@ const Login = function ({
   error,
 }) {
   return (
-    <div className="login">
+    <div
+      className="login"
+      style={{ backgroundImage: "url(/img/patient_help2.jpg)" }}
+    >
       <div className="login_container">
-        <img src="/img/img-logo.svg" alt="" className="login_logo" />
+        <div className="login_title">Nursiri</div>
         <h2 className="login_formTitle">Login</h2>
         <form
           action="#"
@@ -42,13 +45,17 @@ const Login = function ({
               onChange={(e) => onPasswordChange(e.target.value)}
             />
           </div>
-          <input className="input" type="submit" value="" />
+          <input className="input" type="submit" value="login" />
         </form>
-        {/* <Link to={routes.ResetPasswordScreen}>
- <button className="login_forgotPass"> Forget your password?</button>
- </Link> */}
+
         <h2 className="login_error"> {error}</h2>
       </div>
+      {/* <footer>
+        <img
+          className="img"
+          src="/img/Screenshot from 2020-12-04 19-49-23.png"
+        ></img>
+      </footer> */}
     </div>
   );
 };
