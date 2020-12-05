@@ -39,7 +39,6 @@ function App() {
                 <Nav.Item ><Link to={routes.home}><h5 className={"navBar_homeButtonText"}>Home</h5></Link></Nav.Item>
                 <div>
                     <Button variant={"success"} onClick={handleLogout}>logout</Button>
-
                 </div>
             </Navbar>
 

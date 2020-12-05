@@ -1,32 +1,18 @@
-.title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  margin: auto;
-  font-family: "Abhaya Libre", serif;
-  color: var(--success);
-  font-size: 35px;
+.homeScreen_title {
+
+    color: var(--success);
+    font-size: 35px;
 }
 
-.schedule-List {
-  font-family: "Abhaya Libre", serif;
-}
-th {
-  background-color: #eeeeee;
-  font-weight: normal;
-  margin: 6px;
-  border-collapse: separate;
-  border: 2px solid #5ca2fa;
-  border-radius: 10px;
+.homeScreen_table {
+    width: 80vw !important;
 }
 
-tr:nth-child(even) {
-  background-color: #eeeeee;
-  border-radius: 10px;
-  border-collapse: collapse;
-}
 
-.main-card{
-  padding-top: 60px;
+.homeScreen_component {
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

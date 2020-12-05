@@ -28,11 +28,11 @@ const HomeScreen = function () {
 
 
   return (
-    <div className="main-card">
-      <div className="title">
+    <div className="homeScreen_component">
+      <div className="homeScreen_title">
         <p>My Schedule</p>
       </div>
-      <Table bordered hover variant={"success"} responsive={"md"}>
+      <Table className={"homeScreen_table"} bordered hover variant={"success"} >
         <thead>
           <tr>
             <th>Time</th>

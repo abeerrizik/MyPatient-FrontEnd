@@ -60,7 +60,7 @@ function TreatmentScreen(props) {
             }}>
 
 
-                {!code ? <BarcodeScannerComponent onUpdate={(err, result) => {
+                {!code && !treatmentData?.status ? <BarcodeScannerComponent onUpdate={(err, result) => {
                         if (!result)
                             return;
                         setCode(result.text)
@@ -71,7 +71,7 @@ function TreatmentScreen(props) {
 
                     }} width={500} height={300}/>
                     : <div className={styles.popupResult}>
-                        {isCodeValid ? <>
+                        {isCodeValid || treatmentData.status ? <>
                             <img src="/img/check.svg" alt="check icon" className={styles.icon}/>
                             <h3>Verified!</h3>
                         </> : <>
