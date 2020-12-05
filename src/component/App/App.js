@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Switch, Route,useHistory} from "react-router-dom";
+import {Switch, Route,useHistory,Link} from "react-router-dom";
 import "./App.css";
 import HomeScreen from "../screen/HomeScreen/homeScreen";
 import LoginScreen from "../screen/loginScreen/loginScreen";
@@ -11,7 +11,6 @@ import {Button, Nav, Navbar} from "react-bootstrap";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const history = useHistory()
     useEffect(()=>{
         getNurseData().then((data)=>{
             setIsLoggedIn(Boolean(data))
@@ -32,12 +31,16 @@ function App() {
 
     return (
         <div className="App" >
-            <Navbar variant={"dark"} bg={"dark"} style={{display:"flex",justifyContent:"space-between",height:"80px"}}>
+            <Navbar variant={"dark"} bg={"dark"} className={"navBar"} s>
                 <Navbar.Brand as={"div"} className={"navBar_icon"}>
                     <img src="/img/logo.svg" alt="logo image" className={"navbar_logo"}/>
                     <span>Nursiri</span>
                 </Navbar.Brand>
-                <Button variant={"success"} onClick={handleLogout}>logout</Button>
+                <Nav.Item ><Link to={routes.home}><h5 className={"navBar_homeButtonText"}>Home</h5></Link></Nav.Item>
+                <div>
+                    <Button variant={"success"} onClick={handleLogout}>logout</Button>
+
+                </div>
             </Navbar>
 
             <Switch>

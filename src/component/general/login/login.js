@@ -34,7 +34,7 @@ const Login = function ({
             <Form.Control
               className="input"
               type="id"
-              placeholder="Id..."
+              placeholder="ID Number"
               name="id"
               value={id}
               onChange={(e) => onIdChange(e.target.value)}
@@ -42,7 +42,7 @@ const Login = function ({
             <Form.Control
               className="input"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               name="password"
               value={password}
               onChange={(e) => onPasswordChange(e.target.value)}
