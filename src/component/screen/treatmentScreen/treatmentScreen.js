@@ -4,6 +4,7 @@ import {getTreatmentData, updateStatus} from "../../../utils/login";
 import styles from "./treatmentScreen.module.css"
 import {Button, ListGroup, Modal} from "react-bootstrap";
 import BarcodeScannerComponent from "react-webcam-barcode-scanner";
+import dayjs from "dayjs";
 
 
 
@@ -37,6 +38,10 @@ function TreatmentScreen(props) {
                 <ListGroup.Item className={styles.row} action variant={"light"}>
                     <span className={styles.row_span}>Patient Name:</span>
                     <span className={styles.row_span} >{treatmentData?.["Patient Name"]}</span>
+                </ListGroup.Item>
+                <ListGroup.Item className={styles.row} action variant={"light"}>
+                    <span className={styles.row_span}>Time:</span>
+                    {treatmentData?.Time && <span className={styles.row_span}>{dayjs(treatmentData.Time).format("DD/MM/YYYY HH:mm")}</span>}
                 </ListGroup.Item>
                 <ListGroup.Item className={styles.row} action variant={"light"}>
                     <span className={styles.row_span}>Room:</span>
