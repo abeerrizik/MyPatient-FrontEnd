@@ -52,7 +52,7 @@ const HomeScreen = function () {
         <tbody>
           {schedule?.map((data) => (
             <tr key={data.id} onClick={()=> history.push(`/treatment/${data.id}`)} style={{"opacity":data.status?".3":1}}>
-              <td>{dayjs(data.Time).format("DD/MM/YYYY HH:MM")}</td>
+              <td>{dayjs(data.Time).format("DD/MM/YYYY HH:mm")}</td>
                 {width > maxScreenWith && <td style={{textTransform:"capitalize",textAlign:"start"}}>{data["Patient Name"]}</td>}
               <td>{data.Room}</td>
               <td>{data.Bed}</td>
