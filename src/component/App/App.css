@@ -8,6 +8,10 @@
   height: 100vh;
   margin: 0;
   padding:0;
+  overflow: hidden;
+
+}
+.App > div:first-child{
 }
 
 .app_content{
@@ -32,13 +36,20 @@
   height: 60px;
 
 }
+.navBar_logo_text{
+  font-family: 'Courgette', cursive;
+}
 .navBar_icon{
   display: flex !important;
   align-items: flex-end;
 }
 .navBar_homeButtonText, .navBar_homeButton:hover, .navBar_homeButton:active, .navBar_homeButton:visited  {
-  color:var(--white);
-  margin: 0 20px;
+  color:var(--green);
+  justify-self: flex-end;
+}
+.navBar_homeButtonText{
+  margin: 0 30px;
+
 }
 .backgroundImg{
   position: absolute;

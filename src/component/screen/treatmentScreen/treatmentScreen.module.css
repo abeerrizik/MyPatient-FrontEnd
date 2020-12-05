@@ -12,7 +12,7 @@
     text-decoration: underline;
 }
 .content{
-    width: 400px;
+    width: min(400px, 80vw);
 
 }
 .card{
@@ -23,6 +23,8 @@
 .row_span{
     text-align: start;
     width: 50%;
+    text-transform: capitalize;
+    color:black
 }
 
 .row {

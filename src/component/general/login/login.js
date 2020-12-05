@@ -20,7 +20,7 @@ const Login = function ({
       <div style={{display:"flex",flexDirection:"column", height:"300px", width:"400px", alignItems:"center"}}>
 
       <Card className={"login_card"}>
-        <img src="/img/logo.svg" alt="logo image" className={"login_logo"}/>
+        <img src="/img/logo3.svg" alt="logo image" className={"login_logo"}/>
         <h5 className="login_title">Nursiri</h5>
         <Form
           action="#"
@@ -48,7 +48,7 @@ const Login = function ({
               onChange={(e) => onPasswordChange(e.target.value)}
             />
           </div>
-          <Button className="input login_submit" type="submit" value="login"  ><img src="/img/icon-arrow.svg"  alt=""/> </Button>
+          <Button variant={"success"} className="input login_submit" type="submit" value="login"  ><img src="/img/icon-arrow.svg"  alt=""/> </Button>
         </Form>
 
 

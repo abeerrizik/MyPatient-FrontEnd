@@ -8,6 +8,7 @@ import {getNurseData, logout} from "../../utils/login";
 import TreatmentScreen from "../screen/treatmentScreen";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Nav, Navbar} from "react-bootstrap";
+import Div100vh from 'react-div-100vh'
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -30,18 +31,17 @@ function App() {
 
 
     return (
-        <div className="App" >
-            {/* style={{backgroundImage:"url(/img/patient_help2.jpg)"}}*/}
+        <Div100vh  className="App" >
 
 
             <div className={"backgroundImg"} style={{backgroundImage:"url(/img/47549.jpg)"}}/>
             <Navbar variant={"dark"} bg={"dark"} className={"navBar"} >
                 <Navbar.Brand as={"div"} className={"navBar_icon"}>
-                    <img src="/img/logo.svg" alt="logo image" className={"navbar_logo"} />
-                    <span>Nursiri</span>
+                    <img src="/img/logo3.svg" alt="logo image" className={"navbar_logo"} />
+                    <span className={"navBar_logo_text"}>Nursiri</span>
                 </Navbar.Brand>
-                <Nav.Item ><Link to={routes.home}><h5 className={"navBar_homeButtonText"}>Home</h5></Link></Nav.Item>
                 <div>
+                    <Nav.Item ><Link to={routes.home}><h5 className={"navBar_homeButtonText"}>Home</h5></Link></Nav.Item>
                     <Button variant={"success"} onClick={handleLogout}>logout</Button>
                 </div>
             </Navbar>
@@ -58,7 +58,7 @@ function App() {
             </Switch>
             </div>
 
-        </div>
+        </Div100vh>
     );
 }
 

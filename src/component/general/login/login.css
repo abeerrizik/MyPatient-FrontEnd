@@ -1,3 +1,4 @@
+
 .login {
   display: flex;
   align-items: center;
@@ -23,12 +24,16 @@
   min-width: 300px;
 }
 .login_logo{
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   filter: drop-shadow(0 0 4px rgb(22, 98, 9));
 }
 .login_title {
-  margin-top: 5px;
+  /*margin-top: 5px;*/
+  position: relative;
+  top:-15px;
+  font-family: 'Courgette', cursive;
+  font-size: xx-large;
 }
 
 
@@ -40,6 +45,7 @@
   height: fit-content;
   width: 100%;
   margin-bottom: 10px;
+
 }
 .login_form_inputs {
   width: 80%;
@@ -54,6 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80px;
 }
 .login_submit > img{
   width: 30px;

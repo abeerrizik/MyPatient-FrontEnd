@@ -36,7 +36,7 @@ function TreatmentScreen(props) {
 
                 <ListGroup.Item className={styles.row} action variant={"light"}>
                     <span className={styles.row_span}>Patient Name:</span>
-                    <span className={styles.row_span}>{treatmentData?.["Patient Name"]}</span>
+                    <span className={styles.row_span} >{treatmentData?.["Patient Name"]}</span>
                 </ListGroup.Item>
                 <ListGroup.Item className={styles.row} action variant={"light"}>
                     <span className={styles.row_span}>Room:</span>
@@ -71,6 +71,7 @@ function TreatmentScreen(props) {
                         setIsCodeValid(isVerified)
                     if(isVerified)
                         updateStatus(id, true)
+
 
                     }} width={500} height={300}/>
                     : <div className={styles.popupResult}>

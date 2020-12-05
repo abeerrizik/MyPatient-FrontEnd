@@ -7,11 +7,11 @@
 }
 
 .homeScreen_table {
-    width: 900px !important;
+    width: min(800px, 80vw)!important;
     border-radius: 20px !important;
     border:0 !important;
     box-shadow: 0 0 4px 2px rgba(0,0,0,.3);
-
+    box-sizing: border-box;
 }
 
 .homeScreen_table > :first-child *{
