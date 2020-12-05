@@ -5,7 +5,16 @@
 
 
 .App, html, body, #root {
-  height: 100vh;
+  height: calc(100vh - 80px);
   margin: 0;
   padding:0;
+}
+.navbar_logo{
+  width: 60px;
+  height: 60px;
+
+}
+.navBar_icon{
+  display: flex !important;
+  align-items: flex-end;
 }

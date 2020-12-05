@@ -7,7 +7,7 @@ import {routes} from "../../constants";
 import {getNurseData, logout} from "../../utils/login";
 import TreatmentScreen from "../screen/treatmentScreen";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Navbar} from "react-bootstrap";
+import {Button, Nav, Navbar} from "react-bootstrap";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -32,8 +32,11 @@ function App() {
 
     return (
         <div className="App" >
-            <Navbar variant={"dark"} bg={"dark"} style={{display:"flex",justifyContent:"space-between"}}>
-                <Navbar.Brand>google.com</Navbar.Brand>
+            <Navbar variant={"dark"} bg={"dark"} style={{display:"flex",justifyContent:"space-between",height:"80px"}}>
+                <Navbar.Brand as={"div"} className={"navBar_icon"}>
+                    <img src="/img/logo.svg" alt="logo image" className={"navbar_logo"}/>
+                    <span>Nursiri</span>
+                </Navbar.Brand>
                 <Button variant={"success"} onClick={handleLogout}>logout</Button>
             </Navbar>
 

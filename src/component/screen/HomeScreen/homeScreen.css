@@ -1,10 +1,11 @@
 .title {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   text-align: center;
   margin: auto;
   font-family: "Abhaya Libre", serif;
-  color: #5ca2fa;
+  color: var(--success);
   font-size: 35px;
 }
 
@@ -24,4 +25,8 @@ tr:nth-child(even) {
   background-color: #eeeeee;
   border-radius: 10px;
   border-collapse: collapse;
+}
+
+.main-card{
+  padding-top: 60px;
 }

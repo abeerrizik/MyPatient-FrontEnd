@@ -1,12 +1,13 @@
 import React from "react";
 import "./homeScreen.css";
-import { getNurseSchedule, updateStatus } from "../../../utils/login";
+import { getNurseSchedule } from "../../../utils/login";
 
 import {
   notificationSubscribe,
   requestNotificationPermission,
 } from "../../../notificationManger";
 import {useHistory} from "react-router-dom";
+import {Table} from "react-bootstrap";
 
 const HomeScreen = function () {
   const [schedule, setSchedule] = React.useState([]);
@@ -31,7 +32,7 @@ const HomeScreen = function () {
       <div className="title">
         <p>My Schedule</p>
       </div>
-      <table className="schedule-List">
+      <Table bordered hover variant={"success"} responsive={"md"}>
         <thead>
           <tr>
             <th>Time</th>
@@ -62,7 +63,7 @@ const HomeScreen = function () {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
