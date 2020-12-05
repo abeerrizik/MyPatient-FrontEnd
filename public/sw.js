@@ -1,6 +1,12 @@
+
+
 self.addEventListener("push", function (e) {
     const data = e.data.json();
-    self.registration.showNotification(data.text, {data});
+    self.registration.showNotification(data.text, {data,
+        icon: '/img/logoSw.png',
+        body:"Nursiri",
+        tag:"Nursiri"
+    });
 
 });
 
@@ -10,15 +16,15 @@ self.addEventListener('notificationclick', function (event) {
 
     event.waitUntil(
         clients.matchAll({type: 'window'}).then( windowClients => {
-          for (var i = 0; i < windowClients.length; i++) {
-            var client = windowClients[i];
-            if (client.url === url && 'focus' in client) {
-              return client.focus();
+            for (var i = 0; i < windowClients.length; i++) {
+                var client = windowClients[i];
+                if (client.url === url && 'focus' in client) {
+                    return client.focus();
+                }
             }
-          }
-          if (clients.openWindow) {
-            return clients.openWindow(url);
-          }
+            if (clients.openWindow) {
+                return clients.openWindow(url);
+            }
         })
     );
 });
