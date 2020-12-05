@@ -1,14 +1,17 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {getTreatmentData} from "../../../utils/login";
+import {getTreatmentData, updateStatus} from "../../../utils/login";
 import styles from "./treatmentScreen.module.css"
 import {Button, ListGroup, Modal} from "react-bootstrap";
 import BarcodeScannerComponent from "react-webcam-barcode-scanner";
 
+
+
 function TreatmentScreen(props) {
     let {id} = useParams();
     const [treatmentData, setTreatmentData] = useState()
-    const [code, setCode] = useState('')
+    const [code, setCode] = useState()
+    const [isCodeValid, setIsCodeValid] = useState(false)
     const [isPopupVisible, setIsPopupVisible] = useState(false)
 
     useEffect(() => {
@@ -46,13 +49,35 @@ function TreatmentScreen(props) {
                 Patient</Button>
 
 
-            {code}
-            <Modal show={isPopupVisible} className={styles.popup} onHide={() => setIsPopupVisible(false)}>
+            <Modal centered show={isPopupVisible} className={styles.popup} onHide={() => {
+                setIsPopupVisible(false)
+                setCode()
+            }}>
 
 
-                    <BarcodeScannerComponent onUpdate={(err, result) => {
-                        if (result) setCode(result.text)
-                    }} width={400} height={300} />
+                {!code ? <BarcodeScannerComponent onUpdate={(err, result) => {
+                        if (!result)
+                            return;
+                        setCode(result.text)
+                    const isVerified = result.text == treatmentData?.["Patient id num"]
+                        setIsCodeValid(isVerified)
+                    if(isVerified)
+                        updateStatus(id, true)
+
+                    }} width={500} height={300}/>
+                    : <div className={styles.popupResult}>
+                        {isCodeValid ? <>
+                            <img src="/img/check.svg" alt="check icon" className={styles.icon}/>
+                            <h3>Verified!</h3>
+                        </> : <>
+                            <img src="/img/close.svg" alt="check icon" className={styles.icon}/>
+                            <h3>Incorrect Patient ID</h3>
+
+                        </>
+                        }
+                    </div>
+                }
+
 
             </Modal>
         </div>

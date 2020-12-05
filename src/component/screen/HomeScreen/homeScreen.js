@@ -24,14 +24,7 @@ const HomeScreen = function () {
       .catch(() => {});
   }, []);
 
-  const handlClick = (treatment_id, status) => {
-    updateStatus(treatment_id, status).then(() => {
-      schedule[
-        schedule.findIndex((x) => x.id === treatment_id)
-      ].status = status;
-      setSchedule([...schedule]);
-    });
-  };
+
 
   return (
     <div className="main-card">
@@ -63,7 +56,7 @@ const HomeScreen = function () {
                   type="checkbox"
                   className="status"
                   checked={data.status}
-                  onChange={() => handlClick(data.id, !data.status)}
+                  onChange={()=>{}}
                 />{" "}
               </td>
             </tr>

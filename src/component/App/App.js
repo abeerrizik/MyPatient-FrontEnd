@@ -4,9 +4,10 @@ import "./App.css";
 import HomeScreen from "../screen/HomeScreen/homeScreen";
 import LoginScreen from "../screen/loginScreen/loginScreen";
 import {routes} from "../../constants";
-import {getNurseData} from "../../utils/login";
+import {getNurseData, logout} from "../../utils/login";
 import TreatmentScreen from "../screen/treatmentScreen";
-import "bootstrap/dist/css/bootstrap.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button, Navbar} from "react-bootstrap";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -14,10 +15,15 @@ function App() {
     useEffect(()=>{
         getNurseData().then((data)=>{
             setIsLoggedIn(Boolean(data))
-            history.push(routes.home)
         })
 
     },[])
+
+    function handleLogout(){
+        logout().then(()=>setIsLoggedIn(false))
+    }
+
+
     if (!isLoggedIn)
         return <div className="App">
             <LoginScreen onLogin={()=>setIsLoggedIn(true)}/>
@@ -26,13 +32,20 @@ function App() {
 
     return (
         <div className="App" >
+            <Navbar variant={"dark"} bg={"dark"} style={{display:"flex",justifyContent:"space-between"}}>
+                <Navbar.Brand>google.com</Navbar.Brand>
+                <Button variant={"success"} onClick={handleLogout}>logout</Button>
+            </Navbar>
+
             <Switch>
-                <Route path={routes.home}>
-                    <HomeScreen/>
-                </Route>
-                <Route path={"/treatment/:id"}>
+
+                <Route exact path={"/treatment/:id"}>
                     <TreatmentScreen/>
                 </Route>
+                <Route  path={routes.home}>
+                    <HomeScreen/>
+                </Route>
+
             </Switch>
         </div>
     );
