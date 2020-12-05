@@ -50,12 +50,7 @@ const Login = function ({
 
         <h2 className="login_error"> {error}</h2>
       </div>
-      {/* <footer>
-        <img
-          className="img"
-          src="/img/Screenshot from 2020-12-04 19-49-23.png"
-        ></img>
-      </footer> */}
+
     </div>
   );
 };

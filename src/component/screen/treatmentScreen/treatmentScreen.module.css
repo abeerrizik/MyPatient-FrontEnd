@@ -1,0 +1,37 @@
+.component{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+.title{
+    margin-bottom: 60px;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+.span{
+    text-align: start;
+    width: 50%;
+}
+
+.entry {
+    display: flex !important;
+    min-width: max(200px, 80vw);
+    justify-content: space-between;
+}
+
+.button{
+    margin-top: 30px;
+    width: 80vw;
+    min-width: max(200px, 80vw);
+
+}
+
+.popup {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

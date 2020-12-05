@@ -1,14 +1,17 @@
 import React from "react";
 import "./homeScreen.css";
-import { getNurseSchedule, updatStatus } from "../../../utils/login";
+import { getNurseSchedule, updateStatus } from "../../../utils/login";
 
 import {
   notificationSubscribe,
   requestNotificationPermission,
 } from "../../../notificationManger";
+import {useHistory} from "react-router-dom";
 
 const HomeScreen = function () {
   const [schedule, setSchedule] = React.useState([]);
+  const history = useHistory()
+
   React.useEffect(() => {
     requestNotificationPermission()
       .then(notificationSubscribe)
@@ -22,7 +25,7 @@ const HomeScreen = function () {
   }, []);
 
   const handlClick = (treatment_id, status) => {
-    updatStatus(treatment_id, status).then(() => {
+    updateStatus(treatment_id, status).then(() => {
       schedule[
         schedule.findIndex((x) => x.id === treatment_id)
       ].status = status;
@@ -48,7 +51,7 @@ const HomeScreen = function () {
         </thead>
         <tbody>
           {schedule?.map((data) => (
-            <tr key={data.id}>
+            <tr key={data.id} onClick={()=> history.push(`/treatment/${data.id}`)}>
               <td>{data.Time}</td>
               <td>{data["Patient Name"]}</td>
               <td>{data.Room}</td>

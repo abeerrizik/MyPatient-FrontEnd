@@ -5,6 +5,8 @@ import HomeScreen from "../screen/HomeScreen/homeScreen";
 import LoginScreen from "../screen/loginScreen/loginScreen";
 import {routes} from "../../constants";
 import {getNurseData} from "../../utils/login";
+import TreatmentScreen from "../screen/treatmentScreen";
+import "bootstrap/dist/css/bootstrap.css"
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -27,6 +29,9 @@ function App() {
             <Switch>
                 <Route path={routes.home}>
                     <HomeScreen/>
+                </Route>
+                <Route path={"/treatment/:id"}>
+                    <TreatmentScreen/>
                 </Route>
             </Switch>
         </div>
