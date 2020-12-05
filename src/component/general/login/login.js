@@ -48,7 +48,7 @@ const Login = function ({
               onChange={(e) => onPasswordChange(e.target.value)}
             />
           </div>
-          <Button className="input" type="submit" value="login" >Login </Button>
+          <Button className="input login_submit" type="submit" value="login"  ><img src="/img/icon-arrow.svg"  alt=""/> </Button>
         </Form>
 
 

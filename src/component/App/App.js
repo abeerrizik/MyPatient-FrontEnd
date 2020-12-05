@@ -31,9 +31,13 @@ function App() {
 
     return (
         <div className="App" >
-            <Navbar variant={"dark"} bg={"dark"} className={"navBar"} s>
+            {/* style={{backgroundImage:"url(/img/patient_help2.jpg)"}}*/}
+
+
+            <div className={"backgroundImg"} style={{backgroundImage:"url(/img/47549.jpg)"}}/>
+            <Navbar variant={"dark"} bg={"dark"} className={"navBar"} >
                 <Navbar.Brand as={"div"} className={"navBar_icon"}>
-                    <img src="/img/logo.svg" alt="logo image" className={"navbar_logo"}/>
+                    <img src="/img/logo.svg" alt="logo image" className={"navbar_logo"} />
                     <span>Nursiri</span>
                 </Navbar.Brand>
                 <Nav.Item ><Link to={routes.home}><h5 className={"navBar_homeButtonText"}>Home</h5></Link></Nav.Item>
@@ -41,7 +45,7 @@ function App() {
                     <Button variant={"success"} onClick={handleLogout}>logout</Button>
                 </div>
             </Navbar>
-
+            <div className={"app_content"}>
             <Switch>
 
                 <Route exact path={"/treatment/:id"}>
@@ -52,6 +56,8 @@ function App() {
                 </Route>
 
             </Switch>
+            </div>
+
         </div>
     );
 }

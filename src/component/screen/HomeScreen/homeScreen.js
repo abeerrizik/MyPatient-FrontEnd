@@ -1,7 +1,7 @@
 import React from "react";
 import "./homeScreen.css";
 import { getNurseSchedule } from "../../../utils/login";
-
+import dayjs from "dayjs"
 import {
   notificationSubscribe,
   requestNotificationPermission,
@@ -29,10 +29,10 @@ const HomeScreen = function () {
 
   return (
     <div className="homeScreen_component">
-      <div className="homeScreen_title">
+      <div className="title">
         <p>My Schedule</p>
       </div>
-      <Table className={"homeScreen_table"} bordered hover variant={"success"} >
+      <Table className={"homeScreen_table "}  hover variant={"light"} >
         <thead>
           <tr>
             <th>Time</th>
@@ -46,7 +46,7 @@ const HomeScreen = function () {
         <tbody>
           {schedule?.map((data) => (
             <tr key={data.id} onClick={()=> history.push(`/treatment/${data.id}`)}>
-              <td>{data.Time}</td>
+              <td>{dayjs(data.Time).format("DD/MM/YYYY HH:MM")}</td>
               <td>{data["Patient Name"]}</td>
               <td>{data.Room}</td>
               <td>{data.Bed}</td>

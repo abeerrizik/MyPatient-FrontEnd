@@ -25,33 +25,36 @@ function TreatmentScreen(props) {
 
     return (
         <div className={styles.component}>
-            <h4 className={styles.title}>treatment Information</h4>
-            <ListGroup>
-                <ListGroup.Item className={styles.entry} action variant={"success"}>
-                    <span className={styles.span}>Patient ID:</span>
-                    <span className={styles.span}>{treatmentData?.["Patient id num"]}</span>
+            <div className={styles.content}>
+
+            <p className={"title"}>treatment Information</p>
+            <ListGroup className={styles.card}>
+                <ListGroup.Item className={styles.row} action variant={"light"}>
+                    <span className={styles.row_span}>Patient ID:</span>
+                    <span className={styles.row_span}>{treatmentData?.["Patient id num"]}</span>
                 </ListGroup.Item>
 
-                <ListGroup.Item className={styles.entry} action variant={"success"}>
-                    <span className={styles.span}>Patient Name:</span>
-                    <span className={styles.span}>{treatmentData?.["Patient Name"]}</span>
+                <ListGroup.Item className={styles.row} action variant={"light"}>
+                    <span className={styles.row_span}>Patient Name:</span>
+                    <span className={styles.row_span}>{treatmentData?.["Patient Name"]}</span>
                 </ListGroup.Item>
-                <ListGroup.Item className={styles.entry} action variant={"success"}>
-                    <span className={styles.span}>Room:</span>
-                    <span className={styles.span}>{treatmentData?.Room}</span>
+                <ListGroup.Item className={styles.row} action variant={"light"}>
+                    <span className={styles.row_span}>Room:</span>
+                    <span className={styles.row_span}>{treatmentData?.Room}</span>
                 </ListGroup.Item>
-                <ListGroup.Item className={styles.entry} action variant={"success"}>
-                    <span className={styles.span}>Bed:</span>
-                    <span className={styles.span}>{treatmentData?.Bed}</span>
+                <ListGroup.Item className={styles.row} action variant={"light"}>
+                    <span className={styles.row_span}>Bed:</span>
+                    <span className={styles.row_span}>{treatmentData?.Bed}</span>
                 </ListGroup.Item>
 
-                <ListGroup.Item className={styles.entry} action variant={"success"}>
-                    <span className={styles.span}>Treatment:</span>
-                    <span className={styles.span}>{treatmentData?.Description}</span>
+                <ListGroup.Item className={styles.row} action variant={"light"}>
+                    <span className={styles.row_span}>Treatment:</span>
+                    <span className={styles.row_span}>{treatmentData?.Description}</span>
                 </ListGroup.Item>
             </ListGroup>
-            <Button className={styles.button} onClick={() => setIsPopupVisible(true)} variant={"success"}>Verify
+            <Button className={styles.button} onClick={() => setIsPopupVisible(true)} variant={"secondary"}>Verify
                 Patient</Button>
+            </div>
 
 
             <Modal centered show={isPopupVisible} className={styles.popup} onHide={() => {

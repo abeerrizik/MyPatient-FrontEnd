@@ -50,3 +50,12 @@
 .input {
 
 }
+.login_submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_submit > img{
+  width: 30px;
+  height: 30px;
+}

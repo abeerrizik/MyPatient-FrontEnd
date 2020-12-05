@@ -5,9 +5,13 @@
 
 
 .App, html, body, #root {
-  height: calc(100vh - 80px);
+  height: 100vh;
   margin: 0;
   padding:0;
+}
+
+.app_content{
+  height: calc(100vh - 80px);
 }
 
 .navBar{
@@ -35,4 +39,23 @@
 .navBar_homeButtonText, .navBar_homeButton:hover, .navBar_homeButton:active, .navBar_homeButton:visited  {
   color:var(--white);
   margin: 0 20px;
+}
+.backgroundImg{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  opacity: .2;
+}
+
+.title{
+  color: var(--success);
+  font-size: 35px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+  text-transform: capitalize;
 }
