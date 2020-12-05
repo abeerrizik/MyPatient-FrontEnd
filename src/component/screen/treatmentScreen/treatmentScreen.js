@@ -21,7 +21,7 @@ function TreatmentScreen(props) {
             // if(data.status)
             // setCode(data["Patient id num"])
         }).catch(console.error)
-    })
+    },[])
 
     return (
         <div className={styles.component}>
