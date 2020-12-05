@@ -19,6 +19,8 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center;
+  max-width: 300px;
+  min-width: 300px;
 }
 .login_logo{
   width: 80px;

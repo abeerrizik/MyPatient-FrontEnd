@@ -17,6 +17,8 @@ const Login = function ({
       className="login"
       style={{ backgroundImage: "url(/img/patient_help2.jpg)" }}
     >
+      <div style={{display:"flex",flexDirection:"column", height:"300px", width:"400px", alignItems:"center"}}>
+
       <Card className={"login_card"}>
         <img src="/img/logo.svg" alt="logo image" className={"login_logo"}/>
         <h5 className="login_title">Nursiri</h5>
@@ -49,9 +51,11 @@ const Login = function ({
           <Button className="input" type="submit" value="login" >Login </Button>
         </Form>
 
-        {error && <Alert variant={"danger"}>{error}</Alert>}
 
     </Card>
+      {error && <Alert style={{marginTop:"10px",boxShadow:"0 0 2px  rgba(0,0,0.3)"}} variant={"danger"}>{error}</Alert>}
+      </div>
+
     </div>
   );
 };
