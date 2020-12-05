@@ -1,5 +1,6 @@
 import React from "react";
 import "./login.css";
+import {Alert, Button, Card, Form} from "react-bootstrap"
 
 import { routes } from "../../../constants";
 
@@ -16,10 +17,10 @@ const Login = function ({
       className="login"
       style={{ backgroundImage: "url(/img/patient_help2.jpg)" }}
     >
-      <div className="login_container">
-        <div className="login_title">Nursiri</div>
-        <h2 className="login_formTitle">Login</h2>
-        <form
+      <Card className={"login_card"}>
+        <img src="/img/logo.svg" alt="logo image" className={"login_logo"}/>
+        <h5 className="login_title">Nursiri</h5>
+        <Form
           action="#"
           className="login_form"
           onSubmit={(e) => {
@@ -28,7 +29,7 @@ const Login = function ({
           }}
         >
           <div className="login_form_inputs">
-            <input
+            <Form.Control
               className="input"
               type="id"
               placeholder="Id..."
@@ -36,7 +37,7 @@ const Login = function ({
               value={id}
               onChange={(e) => onIdChange(e.target.value)}
             />
-            <input
+            <Form.Control
               className="input"
               type="password"
               placeholder="password"
@@ -45,12 +46,12 @@ const Login = function ({
               onChange={(e) => onPasswordChange(e.target.value)}
             />
           </div>
-          <input className="input" type="submit" value="login" />
-        </form>
+          <Button className="input" type="submit" value="login" >Login </Button>
+        </Form>
 
-        <h2 className="login_error"> {error}</h2>
-      </div>
+        {error && <Alert variant={"danger"}>{error}</Alert>}
 
+    </Card>
     </div>
   );
 };

@@ -15,7 +15,12 @@ function TreatmentScreen(props) {
     const [isPopupVisible, setIsPopupVisible] = useState(false)
 
     useEffect(() => {
-        getTreatmentData(id).then(setTreatmentData).catch(console.error)
+        getTreatmentData(id).then((data)=>
+        {
+            setTreatmentData(data)
+            // if(data.status)
+            // setCode(data["Patient id num"])
+        }).catch(console.error)
     })
 
     return (
